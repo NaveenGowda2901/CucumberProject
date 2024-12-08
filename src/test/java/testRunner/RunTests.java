@@ -7,11 +7,11 @@ import io.cucumber.junit.CucumberOptions;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "D:\\eclipseWorkspace\\CucmberAutomationFramework\\src\\test\\resources\\features\\register_001.feature",
+@CucumberOptions(features = "D:\\eclipseWorkspace\\CucmberAutomationFramework\\src\\test\\resources\\features\\cart.feature",
 				 glue = {"stepDefinitions", "hooks"},
 			//	 monochrome = true,
 				 publish = true,
-			//	 tags = "@sanity",
+				 tags = "@sanity",
 				 dryRun = false
 				)
 

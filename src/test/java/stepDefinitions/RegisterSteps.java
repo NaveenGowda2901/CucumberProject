@@ -17,6 +17,7 @@ public class RegisterSteps {
 
 	HomePage homepage;
 	SignupLoginPage signuppage;	
+	
 	String name = BaseClass.fakerData().name().name();
 	String lname = BaseClass.fakerData().name().lastName();
 	String email = BaseClass.fakerData().internet().emailAddress();
