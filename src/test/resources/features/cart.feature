@@ -24,20 +24,20 @@ Feature: Cart Operation
     And click on view product
     And Add the product to cart from product display page
     Then Validate product added to cart pop up window on the Product details page has links
-@sanity
+
   Scenario: validate 'view cart' link on the pop up of 'products' page naviates to the cart(TC_Cart_005)
-     When search a product
+    When search a product
     And Add the product to cart from products page
     Then click view cart link
     Then validate view cart link on the pop up of products page naviates to the cart
-@sanity
+
   Scenario: validate 'view cart' link on the pop up of 'product details' page naviates to the cart(TC_Cart_006)
     When search a product
     And click on view product
     And Add the product to cart from product display page
     Then click view cart link
     Then validate view cart link on the pop up of product details page naviates to the cart
-@sanity
+
   Scenario: validate 'continue shopping' link on the pop up of 'products' continues to products page(TC_Cart_007)
     When search a product
     And Add the product to cart from products page
@@ -49,10 +49,10 @@ Feature: Cart Operation
     And click on view product
     And Add the product to cart from product display page
     Then click continue shopping link
-    Then validate continue shopping link on the pop up of products page continues to product details page 
+    Then validate continue shopping link on the pop up of products page continues to product details page
 
   Scenario: Validate the product quantity reflects in the cart (TC_Cart_009)
-  When search a product
+    When search a product
     And click on view product
     Then Increase the quantity
     And Add the product to cart from product display page
@@ -60,7 +60,7 @@ Feature: Cart Operation
     Then Validate the product quantity reflects in the cart
 
   Scenario: Validate the cart total price (TC_Cart_010)
-   When search a product
+    When search a product
     And click on view product
     Then Increase the quantity
     And Add the product to cart from product display page
@@ -68,7 +68,7 @@ Feature: Cart Operation
     Then Validate the cart total price
 
   Scenario: Validate product deletion from cart(TC_Cart_011)
-     When search a product
+    When search a product
     And click on view product
     Then Increase the quantity
     And Add the product to cart from product display page
@@ -78,20 +78,26 @@ Feature: Cart Operation
 
   Scenario: Validate of all the items, only the item of interest gets deleted from the cart(TC_Cart_012)
     When search a product
-    And Add the product to cart from products page
+    And click on view product
+    And Add the product to cart from product display page
     Then click continue shopping link
+    And Click on products options
     When search another product
-    And Add the product to cart from products page
+    And click on view product2
+    And Add the product to cart from product display page
     Then click view cart link
     And delete only one product from cart
     Then Validate only the product of interest gets deleted from the cart
 
   Scenario: Validate all the items of the cart are deleted and the cart is empty(TC_Cart_013)
     When search a product
-    And Add the product to cart from products page
+    And click on view product
+    And Add the product to cart from product display page
     Then click continue shopping link
+    And Click on products options
     When search another product
-    And Add the product to cart from products page
+    And click on view product2
+    And Add the product to cart from product display page
     Then click view cart link
     And delete all products from cart
     Then Validate all the items of the cart are deleted and the cart is empty

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Cucumber" time="154.266" tests="7" skipped="0" failures="2" errors="0">
+<testcase classname="Usre login DDT" name="DDT for user login - #1.1" time="13.502">
+<system-out><![CDATA[
+Given user clicks on signin link on homepage................................passed
+Then verify user login for different set of inputs "khkkknksdgjg@gmail.com" "<password"> "invalidemail".passed
+]]></system-out>
+</testcase>
+<testcase classname="Usre login DDT" name="DDT for user login - #1.2" time="15.698">
+<system-out><![CDATA[
+Given user clicks on signin link on homepage................................passed
+Then verify user login for different set of inputs "framework@gmail.com" "<password"> "invalidpassword".passed
+]]></system-out>
+</testcase>
+<testcase classname="Usre login DDT" name="DDT for user login - #1.3" time="13.699">
+<system-out><![CDATA[
+Given user clicks on signin link on homepage................................passed
+Then verify user login for different set of inputs "abcdg" "<password"> "invalidemailformat".passed
+]]></system-out>
+</testcase>
+<testcase classname="Usre login DDT" name="DDT for user login - #1.4" time="36.735">
+<failure type="org.openqa.selenium.NoSuchElementException" message="no such element: Unable to locate element: {&quot;method&quot;:&quot;xpath&quot;,&quot;selector&quot;:&quot;//a[normalize-space()='Logout']&quot;}
+  (Session info: chrome=131.0.6778.109)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6f0c79ebac89d6da97e20b7afea6eb50, findElement {using=xpath, value=//a[normalize-space()='Logout']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.109, chrome: {chromedriverVersion: 131.0.6778.87 (ce31cae94873..., userDataDir: C:\Users\pleas\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50477}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50477/devtoo..., se:cdpVersion: 131.0.6778.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6f0c79ebac89d6da97e20b7afea6eb50">
+<![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//a[normalize-space()='Logout']"}
+  (Session info: chrome=131.0.6778.109)
+For documentation on this error, please visit: https://www.selenium.dev/documentation/webdriver/troubleshooting/errors#no-such-element-exception
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [6f0c79ebac89d6da97e20b7afea6eb50, findElement {using=xpath, value=//a[normalize-space()='Logout']}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.109, chrome: {chromedriverVersion: 131.0.6778.87 (ce31cae94873..., userDataDir: C:\Users\pleas\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50477}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50477/devtoo..., se:cdpVersion: 131.0.6778.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 6f0c79ebac89d6da97e20b7afea6eb50
+	at java.base/jdk.internal.reflect.DirectConstructorHandleAccessor.newInstance(DirectConstructorHandleAccessor.java:62)
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:501)
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:485)
+	at org.openqa.selenium.remote.ErrorCodec.decode(ErrorCodec.java:167)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:138)
+	at org.openqa.selenium.remote.codec.w3c.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:50)
+	at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:190)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.invokeExecute(DriverCommandExecutor.java:216)
+	at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:174)
+	at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:545)
+	at org.openqa.selenium.remote.ElementLocation$ElementFinder$2.findElement(ElementLocation.java:165)
+	at org.openqa.selenium.remote.ElementLocation.findElement(ElementLocation.java:59)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:368)
+	at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:362)
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:68)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at jdk.proxy2/jdk.proxy2.$Proxy25.isDisplayed(Unknown Source)
+	at pages.HomePage.validateLogoutLinkDisplay(HomePage.java:46)
+	at stepDefinitions.LoginDDTSteps.verify_user_login_for_different_set_of_inputs(LoginDDTSteps.java:63)
+	at ✽.verify user login for different set of inputs "framework@gmail.com" "<password"> "valid"(file:///D:/eclipseWorkspace/CucmberAutomationFramework/src/test/resources/features/loginDTT.feature:5)
+]]>
+</failure>
+<system-out><![CDATA[
+Given user clicks on signin link on homepage................................passed
+Then verify user login for different set of inputs "framework@gmail.com" "<password"> "valid".failed
+]]></system-out>
+</testcase>
+<testcase classname="Usre login DDT" name="DDT for user login - #1.5" time="34.868">
+<system-out><![CDATA[
+Given user clicks on signin link on homepage................................passed
+Then verify user login for different set of inputs "" "<password"> "missingemail".passed
+]]></system-out>
+</testcase>
+<testcase classname="Usre login DDT" name="DDT for user login - #1.6" time="28.505">
+<failure type="org.openqa.selenium.TimeoutException" message="Expected condition failed: waiting for value to contain &quot;Please fill out this field.&quot;. (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.109, chrome: {chromedriverVersion: 131.0.6778.87 (ce31cae94873..., userDataDir: C:\Users\pleas\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50550}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50550/devtoo..., se:cdpVersion: 131.0.6778.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 82ff7c477557d3cb6a9a12eaf9ca0f2d">
+<![CDATA[org.openqa.selenium.TimeoutException: Expected condition failed: waiting for value to contain "Please fill out this field.". (tried for 15 second(s) with 500 milliseconds interval)
+Build info: version: '4.27.0', revision: 'd6e718d134'
+System info: os.name: 'Windows 11', os.arch: 'amd64', os.version: '10.0', java.version: '23'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 131.0.6778.109, chrome: {chromedriverVersion: 131.0.6778.87 (ce31cae94873..., userDataDir: C:\Users\pleas\AppData\Loca...}, fedcm:accounts: true, goog:chromeOptions: {debuggerAddress: localhost:50550}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: windows, proxy: Proxy(), se:cdp: ws://localhost:50550/devtoo..., se:cdpVersion: 131.0.6778.109, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: 82ff7c477557d3cb6a9a12eaf9ca0f2d
+	at org.openqa.selenium.support.ui.WebDriverWait.timeoutException(WebDriverWait.java:84)
+	at org.openqa.selenium.support.ui.FluentWait.until(FluentWait.java:228)
+	at pages.SignupLoginPage.validateMissingSigninPasswordField(SignupLoginPage.java:107)
+	at stepDefinitions.LoginDDTSteps.verify_user_login_for_different_set_of_inputs(LoginDDTSteps.java:83)
+	at ✽.verify user login for different set of inputs "missingpassword@gmail.com" "<password"> "missingpassword"(file:///D:/eclipseWorkspace/CucmberAutomationFramework/src/test/resources/features/loginDTT.feature:5)
+]]>
+</failure>
+<system-out><![CDATA[
+Given user clicks on signin link on homepage................................passed
+Then verify user login for different set of inputs "missingpassword@gmail.com" "<password"> "missingpassword".failed
+]]></system-out>
+</testcase>
+<testcase classname="Usre login DDT" name="DDT for user login - #1.7" time="10.715">
+<system-out><![CDATA[
+Given user clicks on signin link on homepage................................passed
+Then verify user login for different set of inputs "" "<password"> "missingemailandpassword".passed
+]]></system-out>
+</testcase>
+</testsuite>

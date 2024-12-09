@@ -12,14 +12,18 @@ public class CartSteps {
 
 	HomePage homepage;
 	SearchPage searchpage;
-	CartPage cartpage;
+	CartPage cart;
+	String quantity="5";
 
-	String searchtxt = "tshirt";
+	String product1 = "tops";
+	String product2 = "dress";
+	String productChosen;
+	String productChosen2;
 
 	@Given("Click on products options")
 	public void click_on_products_options() {
 		searchpage = new SearchPage(BaseClass.driver);
-		cartpage = new CartPage(BaseClass.driver);
+		cart = new CartPage(BaseClass.driver);
 		homepage = new HomePage(BaseClass.driver);
 
 		homepage.clickProducts();
@@ -27,7 +31,7 @@ public class CartSteps {
 
 	@When("search a product")
 	public void search_a_product() {
-		searchpage.SearchProdThroughSearchBtn(searchtxt);
+		searchpage.SearchProdThroughSearchBtn(product1);
 	}
 
 	@When("Add the product to cart from products page")
@@ -38,6 +42,15 @@ public class CartSteps {
 	@When("click on view product")
 	public void click_on_view_product() {
 		searchpage.clickViewProductOfFirstSearchProduct();
+		productChosen = searchpage.getProductName();
+		System.out.println("product1:"+productChosen);
+	}
+
+	@When("click on view product2")
+	public void click_on_view_product2() {
+		searchpage.clickViewProductOfFirstSearchProduct();
+		productChosen2 = searchpage.getProductName();
+		System.out.println("product2:"+productChosen2);
 	}
 
 	@When("Add the product to cart from product display page")
@@ -52,27 +65,34 @@ public class CartSteps {
 
 	@Then("click continue shopping link")
 	public void click_continue_shopping_link() {
-		Assert.assertEquals(cartpage.validateCartPage(), true);
+		searchpage.clickDisplayPageContinueShopping();
 	}
 
 	@Then("delete only one product from cart")
-	public void delete_only_one_product_from_cart() {
-
+	public void delete_only_one_product_from_cart() throws InterruptedException {
+		cart.deleteItemFromCart(productChosen);
 	}
 
 	@Then("Increase the quantity")
 	public void increase_the_quantity() {
-
+		searchpage.setProductQuantity(quantity);
 	}
 
 	@Then("delete all products from cart")
 	public void delete_all_products_from_cart() {
-
+		cart.deleteAllCartItems();
 	}
 
 	@When("search another product")
 	public void search_another_product() {
+		searchpage.SearchProdThroughSearchBtn(product2);
+	}
 
+	@Then("delete product from cart")
+	public void delete_product_from_cart() throws InterruptedException {
+		Thread.sleep(3000);
+		cart.deleteItemFromCart(productChosen);
+		Thread.sleep(3000);
 	}
 
 	//validations
@@ -102,7 +122,7 @@ public class CartSteps {
 
 	@Then("validate view cart link on the pop up of products page naviates to the cart")
 	public void validate_view_cart_link_on_the_pop_up_of_products_page_naviates_to_the_cart() {
-		Assert.assertEquals(cartpage.validateCartPage(), true);
+		Assert.assertEquals(cart.validateCartPage(), true);
 	}
 
 	@Then("validate view cart link on the pop up of product details page naviates to the cart")
@@ -117,41 +137,42 @@ public class CartSteps {
 
 	@Then("validate continue shopping link on the pop up of products page continues to product details page")
 	public void validate_continue_shopping_link_on_the_pop_up_of_products_page_continues_to_product_details_page() {
-
+		Assert.assertEquals(searchpage.validateSearchPageNavigation(), true);
 	}
-
-
-
 
 	@Then("Validate the product quantity reflects in the cart")
 	public void validate_the_product_quantity_reflects_in_the_cart() {
-
+		Assert.assertEquals(cart.displayProductQuantity(productChosen), quantity);
 	}
 
 	@Then("Validate the cart total price")
-	public void validate_the_cart_total_price() {
+	public void validate_the_cart_total_price()  {
+		System.out.println(productChosen);
+		int cartQuantity = Integer.parseInt(cart.displayProductQuantity(productChosen));
+		Double itemPrice = cart.getItemPrice(productChosen);
+		Double totalPrice = cartQuantity*itemPrice;
 
-	}
+		System.out.println("Cart quantity: " + cartQuantity);
+		System.out.println("Expected total price: "+ totalPrice);
+		System.out.println("Actual Total Price: " + cart.getItemTotalPrice(productChosen));
 
-	@Then("delete product from cart")
-	public void delete_product_from_cart() {
-
+		Assert.assertEquals(cart.getItemTotalPrice(productChosen), totalPrice);
 	}
 
 	@Then("Validate product deletion from cart")
 	public void validate_product_deletion_from_cart() {
-		// Write code here that turns the phrase above into concrete actions
-		throw new io.cucumber.java.PendingException();
+		Assert.assertEquals(cart.verifyItemDelete(productChosen), true);
 	}
 
 	@Then("Validate only the product of interest gets deleted from the cart")
 	public void validate_only_the_product_of_interest_gets_deleted_from_the_cart() {
-
+		Assert.assertEquals(cart.verifyItemDelete(product1), true);
 	}
 
 	@Then("Validate all the items of the cart are deleted and the cart is empty")
-	public void validate_all_the_items_of_the_cart_are_deleted_and_the_cart_is_empty() {
-
+	public void validate_all_the_items_of_the_cart_are_deleted_and_the_cart_is_empty() throws InterruptedException {
+		Thread.sleep(3000);
+		Assert.assertEquals(cart.validateAllItemsDeleted(), true);
 	}
 
 

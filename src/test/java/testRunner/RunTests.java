@@ -7,15 +7,18 @@ import io.cucumber.junit.CucumberOptions;
 
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "D:\\eclipseWorkspace\\CucmberAutomationFramework\\src\\test\\resources\\features\\cart.feature",
+@CucumberOptions(features = "src/test/resources/features/loginDTT.feature",
 				 glue = {"stepDefinitions", "hooks"},
 			//	 monochrome = true,
 				 publish = true,
-				 tags = "@sanity",
+			//	 tags = "@sanity",
+				plugin = {"pretty", 
+						  "json:Reportsjson/jsonReport.json",
+						  "junit:Reportsxml/xmlReport.xml",
+						  "html:Reportshtml/htmlReport.html",
+						  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
 				 dryRun = false
 				)
-
-
 public class RunTests {
 
 }
