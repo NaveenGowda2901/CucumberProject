@@ -1,24 +1,28 @@
 package testRunner;
 
 import org.junit.runner.RunWith;
+import org.testng.TestNG;
+import org.testng.annotations.Listeners;
 
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
-
+import io.cucumber.testng.AbstractTestNGCucumberTests;
+import utilities.ScreenshotListener;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = "src/test/resources/features/loginDTT.feature",
+@CucumberOptions(features = "./src/test/resources/features/search.feature",
 				 glue = {"stepDefinitions", "hooks"},
-			//	 monochrome = true,
+				 monochrome = true,
 				 publish = true,
-			//	 tags = "@sanity",
 				plugin = {"pretty", 
-						  "json:Reportsjson/jsonReport.json",
-						  "junit:Reportsxml/xmlReport.xml",
-						  "html:Reportshtml/htmlReport.html",
+						  "json:Reports-output/Reportsjson/jsonReport.json",
+						  "junit:Reports-output/Reportsxml/xmlReport.xml",
+						  "html:Reports-output/Reportshtml/htmlReport.html",
 						  "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+				tags = "@sanity",
 				 dryRun = false
 				)
-public class RunTests {
 
+public class RunTests {
+	 
 }

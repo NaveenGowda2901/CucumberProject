@@ -3,6 +3,7 @@ package stepDefinitions;
 import java.io.IOException;
 
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 
 import hooks.BaseClass;
 import io.cucumber.java.en.*;
@@ -65,7 +66,7 @@ public class DeleteUserSteps {
 	@When("navigate back in browser")
 	public void navigate_back_in_browser() throws InterruptedException {
 		homepage.navigateBack();
-		Thread.sleep(5000);
+	//	Thread.sleep(3000);
 		homepage.navigateBack();
 	}
 
