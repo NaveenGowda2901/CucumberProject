@@ -15,6 +15,25 @@
  - Continous Integration to Jenkins and execute tests via Jenkins
  - Functionalities Automated: Account Registration, Signin, Account Deletion, Search and Cart
 
+ ## Test Runner file to run features files and report generation
+ ```bash
+@RunWith(Cucumber.class)
+@CucumberOptions(features = "./src/test/resources/features/search.feature",
+		 glue = {"stepDefinitions", "hooks"},
+		 monochrome = true,
+		 publish = true,
+		 plugin = {"pretty", 
+		 "json:Reports-output/Reportsjson/jsonReport.json",
+		 "junit:Reports-output/Reportsxml/xmlReport.xml",
+		 "html:Reports-output/Reportshtml/htmlReport.html",
+		 "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:"},
+		  tags = "@sanity",
+		  dryRun = false
+		)
+public class RunTests {
+}
+```
+
  ## To generate Extent reports create extent.config and extent-config.xml file under src/test/resources\
 
  -extent.properties file
