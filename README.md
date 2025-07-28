@@ -1,6 +1,6 @@
 # Cucumber BDD Automation Testing Framework(with Java)
 
-### Author: Sana Anwar Farooqui
+### Author: Naveen L
 
 ![CucumberFramework](https://github.com/user-attachments/assets/2db231f8-2221-40f1-8ef5-a5646fc72042)
 
